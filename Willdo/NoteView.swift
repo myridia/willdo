@@ -15,7 +15,22 @@ struct NoteView: View {
     //@State private var password = ""
     var body: some View {
         VStack {
+            
+            //https://developer.apple.com/tutorials/develop-in-swift/create-dynamic-content
+            List {
+
+                  Text("Elisha")
+
+                  Text("Andre")
+
+                  Text("Jasmine")
+
+                  Text("Po-Chun")
+
+              }
+            
             ScrollView {
+                
                 ForEach(vm.notes.reversed()) { note in
                     VStack {
                         
@@ -24,7 +39,8 @@ struct NoteView: View {
                             vm.tapNote(note.id)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color.gray.opacity(0.2))
+                        .background(Color.white.opacity(0.2))
+                        .padding(0).listStyle(.insetGrouped)
                         
               //          Text(note.content)
               //              .frame(maxWidth: .infinity, alignment: .leading)
@@ -32,7 +48,8 @@ struct NoteView: View {
                         
                         
                     }
-                    .padding()
+                    .padding(0)
+                    .listStyle(.insetGrouped)
                 }
             }
 
