@@ -12,14 +12,14 @@ import SQLite3
 class NoteViewModel: ObservableObject {
     @Published var notes: [Note] = []
     var db : OpaquePointer?
-    var path : String = "myDataBaseName.sqlite"
+    var path : String = "willdo.sqlite"
     init(){
         self.db = createDB()
         self.createTable()
         
     }
     
-    
+    //https://www.wepstech.com/sqlite-in-ios-with-swift-5/
     func createDB() -> OpaquePointer? {
             let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(path)
             
@@ -41,6 +41,7 @@ class NoteViewModel: ObservableObject {
             if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
                 if sqlite3_step(statement) == SQLITE_DONE {
                     print("Table creation success")
+                    
                 }else {
                     print("Table creation fail")
                 }
@@ -68,6 +69,7 @@ class NoteViewModel: ObservableObject {
         if content != "" {
             var title = title
             if title == "" {
+                //https://www.zerotoappstore.com/how-to-split-a-string-in-swift-with-examples.html
                 let a = content.components(separatedBy: "\n")
                 if a[0].count > 25 {
                     //let slice = content[0..<50]
