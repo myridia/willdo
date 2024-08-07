@@ -21,6 +21,10 @@ class NoteViewModel: ObservableObject {
     
     //https://www.wepstech.com/sqlite-in-ios-with-swift-5/
     func createDB() -> OpaquePointer? {
+        /*
+         ./Library/Developer/Xcode/UserData/Previews/Simulator Devices/8D0993A7-0652-4385-8E9B-5C40D729DC6E/data/Containers/Data/Application/900DD540-BD83-4546-BA45-D1929D61BDE8/Library/Application Support/willdo.sqlite
+         ./Library/Developer/CoreSimulator/Devices/806AAF35-FA64-4C48-BBB5-52BF91B112FE/data/Containers/Data/Application/250B7C60-EF4B-49A4-B033-ED70F1829AFF/Library/Application Support/willdo.sqlite
+         */
             let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(path)
             
             var db : OpaquePointer? = nil
