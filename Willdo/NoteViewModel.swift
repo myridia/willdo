@@ -33,16 +33,17 @@ class NoteViewModel: ObservableObject {
         if content != "" {
             var title = title
             if title == "" {
-                if content.count > 50 {
+                let a = content.components(separatedBy: "\n")
+                if a[0].count > 25 {
                     //let slice = content[0..<50]
-                    let indexFrom = content.startIndex
-                    let indexTo = content.index(content.startIndex, offsetBy:50)
-                    let substring = content[indexFrom..<indexTo]
-                    title = String(substring)
+                    let indexFrom = a[0].startIndex
+                    let indexTo = a[0].index(a[0].startIndex, offsetBy:25)
+                    let substring = a[0][indexFrom..<indexTo]
+                    title = String(substring) + "..."
 
                 }
                 else {
-                    title = content
+                    title = a[0]
                     
                 }
                 
