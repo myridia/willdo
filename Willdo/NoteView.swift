@@ -16,42 +16,39 @@ struct NoteView: View {
     var body: some View {
         VStack {
             
+            
+            
+            VStack(spacing: 8) {
+
+                   Image(systemName: "tortoise.fill")
+
+                       .foregroundStyle(.tint)
+
+                       .symbolRenderingMode(.hierarchical)
+
+                   Text("Will Do List")
+
+               }
+
+               .font(.title)
+
+           // .bold()
+
+            
+
+            
+            
             //https://developer.apple.com/tutorials/develop-in-swift/create-dynamic-content
             List {
-
-                  Text("Elisha")
-
-                  Text("Andre")
-
-                  Text("Jasmine")
-
-                  Text("Po-Chun")
-
+                ForEach(vm.notes.reversed()) { note in
+                    Text(note.title).onTapGesture{
+                        vm.tapNote(note.id)
+                    }
+                    
+                }
               }
             
-            ScrollView {
-                
-                ForEach(vm.notes.reversed()) { note in
-                    VStack {
-                        
-                        
-                        Text(note.title).onTapGesture{
-                            vm.tapNote(note.id)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(Color.white.opacity(0.2))
-                        .padding(0).listStyle(.insetGrouped)
-                        
-              //          Text(note.content)
-              //              .frame(maxWidth: .infinity, alignment: .leading)
-              //              .background(Color.gray.opacity(0.2))
-                        
-                        
-                    }
-                    .padding(0)
-                    .listStyle(.insetGrouped)
-                }
-            }
+            
 
           
        
