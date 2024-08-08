@@ -39,7 +39,7 @@ class NoteViewModel: ObservableObject {
         }
     
     func createTable()  {
-            let query = "CREATE TABLE IF NOT EXISTS your_table_name(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT, result TEXT, avg INTEGER, list TEXT);"
+            let query = "CREATE TABLE IF NOT EXISTS willdo(id INTEGER PRIMARY KEY AUTOINCREMENT,_id TEXT, _rev TEXT, doc TEXT);"
             var statement : OpaquePointer? = nil
             
             if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK {
