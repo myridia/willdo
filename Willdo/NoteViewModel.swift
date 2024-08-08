@@ -16,15 +16,34 @@ class NoteViewModel: ObservableObject {
     init(){
         self.db = createDB()
         self.createTable()
+        self.insertData(_id:"aa",_rev:"rrr",doc:"dddd")
         
     }
     
+    func insertData(_id:String,_rev:String,doc:String) {
+        let query = "INSERT INTO willdo (_id, _rev) VALUES (?,?);"
+        
+        var statement : OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
+               
+                    sqlite3_bind_text(statement, 1, (_id as NSString).utf8String, -1, nil)
+                    sqlite3_bind_text(statement, 2, (_rev as NSString).utf8String, -1, nil)
+                     sqlite3_bind_text(statement, 3, (doc as NSString).utf8String, -1, nil)
+
+                    if sqlite3_step(statement) == SQLITE_DONE {
+                        print("Data inserted success")
+                    }else {
+                        print("Data is not inserted in table")
+                    }
+                } else {
+                  print("Query is not as per requirement")
+                }
+        
+    }
     //https://www.wepstech.com/sqlite-in-ios-with-swift-5/
     func createDB() -> OpaquePointer? {
-        /*
-         ./Library/Developer/Xcode/UserData/Previews/Simulator Devices/8D0993A7-0652-4385-8E9B-5C40D729DC6E/data/Containers/Data/Application/900DD540-BD83-4546-BA45-D1929D61BDE8/Library/Application Support/willdo.sqlite
-         ./Library/Developer/CoreSimulator/Devices/806AAF35-FA64-4C48-BBB5-52BF91B112FE/data/Containers/Data/Application/250B7C60-EF4B-49A4-B033-ED70F1829AFF/Library/Application Support/willdo.sqlite
-         */
+
             let filePath = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathExtension(path)
             
             var db : OpaquePointer? = nil
@@ -34,6 +53,7 @@ class NoteViewModel: ObservableObject {
                 return nil
             }else {
                 print("Database has been created with path \(path)")
+                print(filePath.path)
                 return db
             }
         }
