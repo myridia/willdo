@@ -16,7 +16,7 @@ class NoteViewModel: ObservableObject {
     init(){
         self.db = createDB()
         self.createTable()
-        self.insertData(_id:"idididididid",_rev:"revrev",doc:"dockdock")
+       // self.insertData(_id:"idididididid",_rev:"revrev",doc:"dockdock")
         self.read()
         
     }
@@ -66,15 +66,15 @@ class NoteViewModel: ObservableObject {
         
            // var mainList = [DBGrade]()
             
-            let query = "SELECT _id, _rev, doc FROM willdo;"
+            let query = "SELECT _id, doc FROM willdo;"
             var statement : OpaquePointer? = nil
             if sqlite3_prepare_v2(db, query, -1, &statement, nil) == SQLITE_OK{
                 while sqlite3_step(statement) == SQLITE_ROW {
                     
                     let _id = String(describing: String(cString: sqlite3_column_text(statement, 0)))
-                    let _rev = String(describing: String(cString: sqlite3_column_text(statement, 1)))
-                    let doc = String(describing: String(cString: sqlite3_column_text(statement, 2)))
-                    print(_id)
+                  //  let _rev = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                    let doc = String(describing: String(cString: sqlite3_column_text(statement, 1)))
+                    notes.append(Note(title: _id, content: doc))
         
               
                 }
