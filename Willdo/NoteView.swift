@@ -7,30 +7,44 @@
 
 import SwiftUI
 
+
 struct NoteView: View {
     @ObservedObject var vm = NoteViewModel()
     @State private var title = ""
     @State private var content = ""
+    @State private var isActive = false
     //@State private var username = ""
     //@State private var password = ""
     var body: some View {
         VStack {
             
-            
-            
+
             VStack(spacing: 8) {
-
-                   Image(systemName: "tortoise.fill")
-
-                       .foregroundStyle(.tint)
-
-                       .symbolRenderingMode(.hierarchical)
-
+                HStack() {
+                    
+                 
+                    Image(systemName: "tortoise.fill")
+                    
+                        .foregroundStyle(.tint)
+                    
+                        .symbolRenderingMode(.hierarchical)
+                }
                    Text("Will Do List")
 
                }
 
                .font(.title)
+            
+            
+            // https://www.codespeedy.com/navigate-to-another-view-on-button-click-in-swiftui/
+            NavigationView {
+                VStack {
+                    NavigationLink(destination: SettingView()) {
+                        Text("Settings")
+                    }
+                }
+                .navigationTitle("Home")
+            }
 
            // .bold()
 
@@ -98,4 +112,11 @@ struct NoteView: View {
 
 #Preview {
     NoteView()
+}
+
+struct AnotherView: View {
+    var body: some View {
+        Text("This is the Another View")
+            .navigationTitle("Another View")
+    }
 }

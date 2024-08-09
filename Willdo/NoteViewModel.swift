@@ -167,7 +167,7 @@ class NoteViewModel: ObservableObject {
             }
             notes.append(Note(title: title, content:content))
             print("...add note")
-            self.insertData(_id:title,_rev:"rrr",doc:content)
+            self.insertData(_id:title,_rev:"",doc:content)
 
         }
         

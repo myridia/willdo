@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE05584D2C65D31800488BFF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE05584C2C65D31800488BFF /* SettingView.swift */; };
 		DE83938C2B67AEEA00936408 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE83938B2B67AEEA00936408 /* Note.swift */; };
 		DE8393902B67B5BF00936408 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE83938F2B67B5BF00936408 /* NoteViewModel.swift */; };
 		DEEC04032B67AB81006D219B /* WilldoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEC04022B67AB81006D219B /* WilldoApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE05584C2C65D31800488BFF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		DE83938B2B67AEEA00936408 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		DE83938F2B67B5BF00936408 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		DEEC03FF2B67AB81006D219B /* Willdo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Willdo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +60,7 @@
 				DEEC04022B67AB81006D219B /* WilldoApp.swift */,
 				DE83938B2B67AEEA00936408 /* Note.swift */,
 				DEEC04042B67AB81006D219B /* NoteView.swift */,
+				DE05584C2C65D31800488BFF /* SettingView.swift */,
 				DE83938F2B67B5BF00936408 /* NoteViewModel.swift */,
 				DEEC04062B67AB83006D219B /* Assets.xcassets */,
 				DEEC04082B67AB83006D219B /* Preview Content */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8393902B67B5BF00936408 /* NoteViewModel.swift in Sources */,
+				DE05584D2C65D31800488BFF /* SettingView.swift in Sources */,
 				DEEC04052B67AB81006D219B /* NoteView.swift in Sources */,
 				DEEC04032B67AB81006D219B /* WilldoApp.swift in Sources */,
 				DE83938C2B67AEEA00936408 /* Note.swift in Sources */,
