@@ -23,14 +23,18 @@ struct SettingView: View {
                 VStack(spacing: 8) {
                     HStack() {
                         
-                
-                        Image(systemName: "tortoise.fill")
-                        
-                            .foregroundStyle(.tint)
-                        
-                            .symbolRenderingMode(.hierarchical)
-                    }
-                    Text("Will Do List")
+                       
+                            
+                            Image(systemName: "tortoise.fill")
+                            
+                                .foregroundStyle(.tint)
+                            
+                                .symbolRenderingMode(.hierarchical)
+                            
+                            
+                            
+                        }
+                    Text("Settings")
                     
                 }
                 

@@ -23,6 +23,13 @@ struct NoteView: View {
                 VStack(spacing: 8) {
                     HStack() {
                         
+Spacer()
+                        Image(systemName: "tortoise.fill")
+                        
+                            .foregroundStyle(.tint)
+                        
+                            .symbolRenderingMode(.hierarchical)
+                        
                         NavigationLink(destination: SettingView()) {
                       
                             Image(systemName: "gearshape.fill")
@@ -32,11 +39,7 @@ struct NoteView: View {
                                 .symbolRenderingMode(.hierarchical)
                             
                         }
-                        Image(systemName: "tortoise.fill")
                         
-                            .foregroundStyle(.tint)
-                        
-                            .symbolRenderingMode(.hierarchical)
                     }
                     Text("Will Do List")
                     
@@ -123,4 +126,5 @@ struct NoteView: View {
 #Preview {
     NoteView()
 }
+
 
