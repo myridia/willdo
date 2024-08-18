@@ -19,6 +19,15 @@ class NoteViewModel: ObservableObject {
        // self.insertData(_id:"idididididid",_rev:"revrev",doc:"dockdock")
         self.read()
         
+        
+        
+        
+        
+        let defaults = UserDefaults.standard
+        defaults.set("foo", forKey: "mykey")
+        let foo = defaults.string(forKey: "mykey")
+        print(foo!)
+        
     }
     
     func insertData(_id:String,_rev:String,doc:String) {
