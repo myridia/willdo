@@ -20,27 +20,66 @@ struct NoteView: View {
             VStack {
                 
                 
+               
+                
+                
+                
+                
                 VStack(spacing: 8) {
-                    HStack() {
-                        
-Spacer()
-                        Image(systemName: "tortoise.fill")
-                        
-                            .foregroundStyle(.tint)
-                        
-                            .symbolRenderingMode(.hierarchical)
-                        
-                        NavigationLink(destination: SettingView()) {
-                      
-                            Image(systemName: "gearshape.fill")
-                            
-                                .foregroundStyle(.gray)
-                            
-                                .symbolRenderingMode(.hierarchical)
-                            
-                        }
-                        
-                    }
+                    
+                    
+
+                    ZStack{
+                                
+                                HStack{
+                    
+                                    NavigationLink(destination: SettingView()) {
+                                  
+                                        Image(systemName: "gearshape.fill")
+                                        
+                                            .foregroundStyle(.gray)
+                                        
+                                            .symbolRenderingMode(.hierarchical)
+                                        
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                    Spacer()
+                                }
+                                
+                                HStack{
+                                    
+                    
+                                    NavigationLink(destination: SettingView()) {
+                                  
+                                        Image(systemName: "tortoise.fill")
+                                        
+                                            .foregroundStyle(.tint)
+                                        
+                                            .symbolRenderingMode(.hierarchical)
+                                        
+                                    }
+                                    
+                                    
+                                }
+
+                                HStack{
+                                    Spacer()
+                                    NavigationLink(destination: SettingView()) {
+                                  
+                                        Image(systemName: "gearshape.fill")
+                                        
+                                            .foregroundStyle(.gray)
+                                        
+                                            .symbolRenderingMode(.hierarchical)
+                                        
+                                    }
+                                }
+                                
+                            }
+                   
                     Text("Will Do List")
                     
                 }
