@@ -33,15 +33,7 @@ struct NoteView: View {
                                 
                                 HStack{
                     
-                                    NavigationLink(destination: SettingView()) {
-                                  
-                                        Image(systemName: "gearshape.fill")
-                                        
-                                            .foregroundStyle(.gray)
-                                        
-                                            .symbolRenderingMode(.hierarchical)
-                                        
-                                    }
+                      
                                     
                                     
                                     
@@ -52,7 +44,7 @@ struct NoteView: View {
                                 HStack{
                                     
                     
-                                    NavigationLink(destination: SettingView()) {
+                                    
                                   
                                         Image(systemName: "tortoise.fill")
                                         
@@ -60,7 +52,7 @@ struct NoteView: View {
                                         
                                             .symbolRenderingMode(.hierarchical)
                                         
-                                    }
+                                    
                                     
                                     
                                 }
