@@ -14,33 +14,33 @@ struct SettingView: View {
     @State private var title = ""
     @State private var content = ""
     @State private var isActive = false
-    @AppStorage("isOn") var isOn = true
+
+    @AppStorage("host") var host = ""
+    @AppStorage("password") var password = ""
+    @AppStorage("isOn") var isOn = false
+    
+    
     //@State private var username = ""
     //@State private var password = ""
     var body: some View {
         NavigationView {
+       
+            
+            
+            
             
             SettingStack {
                 /// This is the main settings page.
-                SettingPage(title: "Playground") {
+                SettingPage(title: "Settings") {
+      
                     /// Use groups to group components together.
-                    SettingGroup(header: "Main Group") {
-                        /// Use any of the pre-made components...
+                    SettingGroup(header: "Online Storage") {
                         SettingToggle(title: "This value is persisted!", isOn: $isOn)
+                        SettingText(id: "Welcome to Setting!", title: "CouchDB Host")
+                        SettingTextField( placeholder: "Enter couchdb here", text: $host)
                         
-                        /// ...or define your own ones!
-                        SettingCustomView {
-                            Image(systemName: "tortoise.fill")
-                            
-                                .foregroundStyle(.tint)
-                            
-                                .symbolRenderingMode(.hierarchical)
-                            
-                            /// Nest `SettingPage` inside other `SettingPage`s!
-                            // SettingPage(title: "Advanced Settings") {
-                            //     SettingText(title: "I show up on the next page!")
-                            // }
-                        }
+                        SettingText(id: "Password", title: "Password")
+                        SettingTextField( placeholder: "Enter Password", text: $password)
                     }
                 }
                 
