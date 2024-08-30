@@ -16,17 +16,26 @@ struct SettingView: View {
     @State private var isActive = false
 
     @AppStorage("host") var host = ""
+    @AppStorage("user") var user = ""
     @AppStorage("password") var password = ""
-    @AppStorage("isOn") var isOn = false
-    
-    
+    @AppStorage("couchdb") var couchdb = false
+    @AppStorage("iscouchdb") var iscouchdb = false
+
+    @AppStorage("languageIndex") var languageIndex = 0
     //@State private var username = ""
     //@State private var password = ""
+    @AppStorage("index") var index = 0
     var body: some View {
         NavigationView {
        
             
-            
+            Form {
+                        Section(header: Text("Notifications")) {
+                  
+                            Toggle("Play notification sounds", isOn: $iscouchdb)
+                        }
+                        
+                    }
             
             
             SettingStack {
@@ -35,13 +44,47 @@ struct SettingView: View {
       
                     /// Use groups to group components together.
                     SettingGroup(header: "Online Storage") {
-                        SettingToggle(title: "This value is persisted!", isOn: $isOn)
-                        SettingText(id: "Welcome to Setting!", title: "CouchDB Host")
-                        SettingTextField( placeholder: "Enter couchdb here", text: $host)
-                        
-                        SettingText(id: "Password", title: "Password")
-                        SettingTextField( placeholder: "Enter Password", text: $password)
+                        SettingToggle(title: "Save Data to Couchdb", isOn: $couchdb)
+                        if couchdb  {
+                            SettingTextField( placeholder: "Enter couchdb host", text: $host)
+                      
+                            SettingTextField( placeholder: "Enter User", text: $user)
+                            
+                            SettingTextField( placeholder: "Enter Password", text: $password)
+                        }
                     }
+                    
+                    SettingGroup {
+                                     
+                                        SettingPicker(
+                                            title: "Picker with menu",
+                                            choices: ["A", "B", "C", "D"],
+                                            selectedIndex: $index,
+                                            choicesConfiguration: .init(
+                                                pickerDisplayMode: .menu
+                                            )
+                                        )
+                                    }
+                    
+                    
+                   
+                    
+                    
+                    
+                    
+                    
+                    SettingGroup {
+                                               SettingButton(title: "View on GitHub") {
+                                                 
+                                                   
+                                                   
+                                               }
+
+                                               
+                                           }
+                    
+                    
+                    
                 }
                 
                 
