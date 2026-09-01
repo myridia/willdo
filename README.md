@@ -1,3 +1,5 @@
+<img src="willdo.svg" alt="willdo" width="120">
+
 # willdo
 Willdo will be a simple Note App.
 
